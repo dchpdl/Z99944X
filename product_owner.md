@@ -140,4 +140,112 @@ Ce guide est un **kit de survie du Product Owner** :
 - Structure ta démarche produit,
 - Clarifie tes responsabilités,
 - Améliore la collaboration,
-- **Maximise la valeur à chaque sprint**.
+- **Maximise la valeur à chaque sprint**.# Template de User Stories – CyberArk (PAM)
+
+## 🎯 Modèle de base (format Connextra)
+
+```
+En tant que <rôle ou persona>,
+Je veux <action fonctionnelle>,
+Afin de <valeur métier / objectif de sécurité>.
+```
+
+---
+
+## ⚙️ Verbes recommandés
+
+**Sécurité :** restreindre, auditer, crypter, appliquer, détecter  
+**Conformité :** tracer, consigner, valider, certifier, notifier  
+**Comptes privilégiés :** onboarder, désactiver, réinitialiser, surveiller  
+**Sessions & accès :** accéder, escalader, rejouer, approuver, enregistrer  
+**Intégrations :** synchroniser, automatiser, déléguer, intégrer
+
+---
+
+## ✅ Exemples de User Stories
+
+### 1. Onboarding automatique
+En tant qu’analyste sécurité,  
+Je veux onboarder automatiquement les comptes privilégiés Unix,  
+Afin de renforcer la visibilité et réduire les accès non gérés.
+
+### 2. Audit des sessions PSM
+En tant qu’auditeur interne,  
+Je veux pouvoir rejouer une session enregistrée dans PSM,  
+Afin d’analyser les activités d’un administrateur soupçonné.
+
+### 3. Rotation régulière
+En tant qu’administrateur PAM,  
+Je veux automatiser la rotation des comptes root chaque 24h,  
+Afin de limiter les risques de compromission persistante.
+
+### 4. Politique RBAC
+En tant que gestionnaire IT,  
+Je veux appliquer des politiques RBAC sur les coffres DevOps,  
+Afin de limiter les accès aux membres autorisés uniquement.
+
+### 5. Alerte d’échec d’accès
+En tant que membre du SOC,  
+Je veux recevoir une alerte en cas d’échec de tentative d’accès à un coffre sensible,  
+Afin de réagir rapidement à un potentiel incident.
+
+---
+
+## ✔️ Critères d’acceptation types
+
+- Le compte apparaît dans le portail PVWA après onboarding.  
+- Le mot de passe est réinitialisé automatiquement selon la politique.  
+- Une session PSM horodatée est disponible dans le centre d’audit.  
+- Le rôle RBAC restreint correctement les accès aux coffres désignés.  
+- Une alerte de tentative d’accès est générée dans Splunk ou SIEM.
+
+---
+
+## 🔍 Checklist INVEST
+
+| Critère      | Signification       | Question de vérification                         |
+|--------------|---------------------|--------------------------------------------------|
+| I - Indépendante | Déployable seule   | Bloque-t-elle d’autres stories ?                 |
+| N - Négociable   | Flexible           | Le besoin est-il figé ou ouvert à discussion ?   |
+| V - Valuable     | Apporte de la valeur | Impacte-t-elle la sécurité ou la conformité ?   |
+| E - Estimable    | Évaluable          | L’équipe peut-elle l’estimer techniquement ?     |
+| S - Small        | Petite              | Est-elle réalisable en moins d’un Sprint ?       |
+| T - Testable     | Testable            | Peut-on vérifier le résultat via logs ou UI ?    |
+
+---
+
+## 📦 Bonnes pratiques spécifiques CyberArk
+
+- Toujours ancrer la story dans un **coffre, un compte ou un accès précis**.  
+- Clarifier le **besoin métier** : sécurité, conformité, gouvernance.  
+- Ajouter une **preuve vérifiable** : logs, alertes, champs d’audit.  
+- Anticiper les **intégrations** (LDAP, Jenkins, API REST).  
+- Définir les **personas techniques** : SOC, Admin, DevOps, Auditeur.  
+- Éviter les verbes techniques inutiles ("configurer un fichier", etc.).  
+- Prioriser selon **valeur métier**, pas complexité technique.  
+
+---
+
+## 🧠 Astuce pour enrichir vos stories
+
+> “Une bonne user story CyberArk protège, trace ou simplifie — sinon elle distrait.”
+
+---
+
+## 📄 Format à copier-coller pour Jira ou Notion
+
+**Titre :** `Rotation automatique des comptes root`  
+**Story :**  
+```
+En tant qu’administrateur PAM,  
+Je veux automatiser la rotation des comptes root tous les jours,  
+Afin de limiter les risques de compromission persistante.
+```  
+**Critères d’acceptation :**  
+- Le mot de passe est changé toutes les 24h.  
+- L’action est tracée dans l’audit trail.  
+- Une alerte est envoyée en cas d’échec de rotation.  
+
+---
+
+
